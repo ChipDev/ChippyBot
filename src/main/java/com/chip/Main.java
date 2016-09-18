@@ -32,6 +32,7 @@ public class Main {
         abstractCommands.add(new ConversationCommand());
         commands.add(new PingCommand());
         commands.add(new CommandsCommand());
+        commands.add(new MemeCommand());
         //real
     }
 

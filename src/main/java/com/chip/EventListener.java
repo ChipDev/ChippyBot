@@ -17,19 +17,9 @@ public class EventListener {
     @EventSubscriber
     public void onMessageReceivedEvent(MessageReceivedEvent event) throws RateLimitException, DiscordException, MissingPermissionsException {
         String[] split = event.getMessage().getContent().split(" ");
-        ArrayList<String> splitArray = new ArrayList<String>();
-        for(int i = 0; i < split.length; i++){
-            splitArray.add(split[i]);
-        }
-        String[] args = new String[splitArray.size()-1];
-        try {
-            splitArray.subList(1, splitArray.size() - 1).toArray(args);
-        }catch(Exception e) {
-            args = null;
-        }
-        System.out.println("EventListener- Message recieved... passing to Main.");
+        String[] args = event.getMessage().getContent().substring(event.getMessage().getContent().indexOf(" ")+1).split(" ");
         Main.callMsgEvent(split[0].replaceFirst("-", ""), args, event);
-        System.out.println("----------------");
+
     }
 
     @EventSubscriber

@@ -35,8 +35,8 @@ public class ConversationCommand implements AbstractCommand {
                 || replaced.contains("chipbotyouarestupid")
                 || replaced.contains("chipbotisstupid")){
             event.getMessage().getChannel().sendMessage(getRandomBlame());
-        } 
-        else if(replaced.contains("chipbotfuckoff")){
+        }
+        else if(replaced.contains("chipbotfuckoff") || replaced.contains("fuckoffchipbot")){
             event.getMessage().getChannel().sendMessage(getRandomfoff().replace("&&^", event.getMessage().getContent()).
                     replace("&&%", event.getMessage().getAuthor().getNicknameForGuild(event.getMessage().getGuild()).orElse(event.getMessage().getAuthor().getName())));
         }

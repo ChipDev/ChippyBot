@@ -17,9 +17,13 @@ public class CommandsCommand implements Command {
 
     @Override
     public void action(String[] args, MessageReceivedEvent event) throws RateLimitException, DiscordException, MissingPermissionsException {
-        Random r = new Random();
-        int n = r.nextInt(waysToSay.length -1);
-        event.getMessage().getChannel().sendMessage(syntax + "xl" + "\n" + waysToSay[n] + "\n" + syntax);
+        if(args[0].equalsIgnoreCase("help")) {
+            event.getMessage().getChannel().sendMessage(help());
+        }else {
+            Random r = new Random();
+            int n = r.nextInt(waysToSay.length - 1);
+            event.getMessage().getChannel().sendMessage(syntax + waysToSay[n] + "\n" + syntax);
+        }
 
     }
 
@@ -27,4 +31,20 @@ public class CommandsCommand implements Command {
     public String name() {
         return "commands";
     }
+
+    @Override
+    public String help() {
+       return "```Help for 'commands': \nUsage: -commands : " + usage() + "." + varextra() + "```" ;
+    }
+
+    @Override
+    public String usage() {
+        return "Lists current loaded commands";
+    }
+
+    @Override
+    public String varextra() {
+        return "\nNew commands are being made all the time!";
+    }
+
 }

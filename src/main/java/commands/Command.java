@@ -12,5 +12,8 @@ public interface Command {
 
     public void action(String[] args, MessageReceivedEvent event) throws RateLimitException, DiscordException, MissingPermissionsException;
     public String name();
+    public String help();
+    public String usage();
+    public String varextra();
 
 }
