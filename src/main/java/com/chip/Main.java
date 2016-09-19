@@ -22,7 +22,7 @@ public class Main {
     public static ArrayList<AbstractCommand> abstractCommands = new ArrayList<>();
 
     public static void main(String[] args) {
-        IDiscordClient client = getClient("MjI2MTQyNjA4Njg5MzMyMjI1.Cr9GAA._GHw0NqDeiv9YP266AaN8_n46sg", true); // Gets the client object (from the first example)
+        IDiscordClient client = getClient("SECRET", true); // Gets the client object (from the first example)
         EventDispatcher dispatcher = client.getDispatcher(); // Gets the EventDispatcher instance for this client instance
         dispatcher.registerListener(new EventListener());
     }
